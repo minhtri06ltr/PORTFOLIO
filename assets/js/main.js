@@ -74,7 +74,7 @@ const modalViews = document.querySelectorAll('.services__modal'),
 let modal = function (modalClick) {
             modalViews[modalClick].classList.add('active-modal')
 }
-console.log(modal)
+
 modalBtns.forEach((modalBtn, index) => {
     modalBtn.addEventListener('click', () => {
                 modal(index)
@@ -88,7 +88,23 @@ modalCloses.forEach((modalClose) => {
             })
         })
 /*==================== PORTFOLIO SWIPER  ====================*/
+let swiper = new Swiper('.portfolio__container', {
+    cssMode: true,
+    loop: true,
 
+      
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl:'.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable:true,
+    },
+   
+    mousewheel: true,
+    keyboard:true,
+})
 
 /*==================== TESTIMONIAL ====================*/
 
