@@ -270,7 +270,7 @@ img {
   fill: var(--first-color);
 }
 .home__blob-img {
-  width: 170px;
+  width: 330px;
 }
 .home__data {
   grid-column: 1/3;
@@ -886,7 +886,7 @@ img {
 }
 /* For medium devices */
 @media screen and (min-width: 568px) {
-  .home__container {
+  .home__content {
     grid-template-columns: max-content 1fr 1fr;
   }
   .home__data {
@@ -1053,7 +1053,7 @@ img {
     padding: 0;
   }
   .home__blob {
-    width: 3px;
+    width: 320px;
   }
   .home__social {
     transform: translateX(-6rem);
