@@ -298,6 +298,13 @@ img {
   display: inline-flex;
   align-items: center;
 }
+.button--white{
+  background-color: #fff;
+  color:var(--first-color);
+}
+.button--white:hover{
+  background-color: rgb(238, 236, 236);
+}
 .button--small {
   padding: 0.75rem 1rem;
 }
@@ -618,9 +625,60 @@ img {
   outline: none;
 }
 /*==================== PROJECT IN MIND ====================*/
-
+.project{
+  text-align: center;
+}
+.project__bg{
+  background-color: var(--first-color);
+  padding-top: 3rem;
+}
+.project__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: var(--mb-0-75);
+}
+.project__description{
+  margin-bottom: var(--mb-1-5);
+}
+.project__title,
+.project__description{
+  color:#fff;
+}
+.project__img{
+  width: 232px;
+  justify-self: center;
+}
 /*==================== TESTIMONIAL ====================*/
-
+.testimontial__data,
+.testimontial__header{
+  display: flex;
+}
+.testimontial__data{
+  justify-content: space-between;
+  margin-bottom: var(--mb-1);
+}
+.testimontial__img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: var(--mb-0-75);
+}
+.testimontial__name{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+.testimontial__client{
+  font-size: var(--small-font-size);
+  color:var(--text-color);
+}
+.testimontial__description{
+  margin-bottom: var(--mb-2-5);
+}
+.testimontial__icon-star{
+  color: var(--first-color);
+}
+.swiper-container .swiper-pagination-testimontial{
+  bottom: 0;
+}
 /*==================== CONTACT ME ====================*/
 
 /*==================== FOOTER ====================*/
