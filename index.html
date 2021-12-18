@@ -3,7 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!--==================== EMAIL JS ====================-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function () {
+        // https://dashboard.emailjs.com/admin/integration
+        emailjs.init('user_oVvPaOCUMCuhqgKnEmsjh');
+      })();
+    </script>
+    <script type="text/javascript">
+      window.onload = function () {
+        document.getElementById('contact__form').addEventListener('submit', function (event) {
+          event.preventDefault();
+          // generate a five digit number for the contact_number variable
+          this.contact_number.value = Math.random() * 100000 | 0;
+          // these IDs from the previous steps
+          emailjs.sendForm('portfolio', 'template_1vv1pr1', this)
+            .then(function () {
+              console.log('SUCCESS!');
+              alert('Thanks for you contact, I will reply back as soon as possible')
+            }, function (error) {
+              console.log('FAILED...', error);
+            });
+        });
+      }
+    </script>
     <!--==================== CONS ====================-->
     <link
       rel="stylesheet"
@@ -106,7 +130,7 @@
             </div>
             <div class="home__data">
                 <h1 class="home__title">Hi, I'm MINH TRI</h1>
-                <h3 class="home_subtitle">MERN Stack developer</h3>
+                <h3 class="home_subtitle" id="text"></h3>
                 <p class="home__description">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi
                     consequuntur molestias corrupti explicabo nam voluptatibus
@@ -836,25 +860,27 @@
               </div>
             </div>
           </div>
-          <form action="" class="contact__form grid">
+          <form action="" class="contact__form grid" id="contact__form">
+            <input type="hidden" name="contact_number">
             <div class="contact__inputs grid">
               <div class="contact__content">
+                
                 <label for="" class="contact__label">Name</label>
-                <input type="text" class="contact__input" />
+                <input type="text" name="from_name" class="contact__input" />
               </div>
               <div class="contact__content">
                 <label for="" class="contact__label">Email</label>
-                <input type="email" class="contact__input" />
+                <input type="email" name="from_email" class="contact__input" />
               </div>
             </div>
             <div class="contact__content">
               <label for="" class="contact__label">Project</label>
-              <input type="text" class="contact__input" />
+              <input type="text" name="project" class="contact__input" />
             </div>
             <div class="contact__content">
               <label for="" class="contact__label">Message</label>
               <textarea
-                name=""
+                name="message"
                 id=""
                 cols="0"
                 rows="7"
@@ -863,10 +889,10 @@
             </div>
 
             <div>
-              <a href="#" class="button button--flex">
+              <button type="submit" style="border: none;" value="Send" class="button button--flex">
                 Send Message
                 <i class="uil uil-message button__icon"></i>
-              </a>
+              </button>
             </div>
           </form>
         </div>

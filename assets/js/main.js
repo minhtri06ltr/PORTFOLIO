@@ -1,3 +1,5 @@
+
+
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
@@ -187,3 +189,68 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+
+/*==================== TYPEWRITER EFFECT ====================*/
+const textDisplay = document.getElementById('text')
+const data = ['MERN Stack developer. 🍔', 'I love to code. 💻', 'I love to learn about new things. 🏁']
+let i = 0
+let j = 0
+let isDeleting = false
+
+let isEnd = false
+
+let currentData = []
+function loop() {
+  isEnd = false
+  //display text
+  textDisplay.innerHTML = currentData.join('')
+  if (i < data.length) {
+   
+
+
+    //loop each element in array
+    if (!isDeleting && j <= data[i].length) {
+      currentData.push(data[i][j])
+      textDisplay.innerHTML = currentData.join('')
+      j++
+    }
+    
+  
+    if (isDeleting && j <= data[i].length) {
+
+      currentData.pop(data[i][j])
+      textDisplay.innerHTML = currentData.join('')
+      j--
+    }
+
+      
+
+    if (j == data[i].length) {
+      //delete 
+      isDeleting = true
+      isEnd = true
+     
+      
+    }
+    
+
+    if (isDeleting && j == 0) {
+      
+      currentData = []
+      isDeleting = false
+      i++
+      if (i == data.length) {
+        i=0
+      }
+    }
+    //speed up when deleting
+    const speedUp = Math.random() * (70 - 40) + 50
+    const normalSpeed = Math.random() * (200 - 100) + 100
+    //change title = 1000 
+    const time = isEnd ? 1000 : isDeleting ? speedUp : normalSpeed
+   
+    setTimeout(loop, time)
+  }
+}
+  loop();
