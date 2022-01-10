@@ -548,7 +548,7 @@ img {
 }
 .services__icon {
   display: block;
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--first-color);
   margin-bottom: var(--mb-1);
 }
@@ -1003,9 +1003,7 @@ img {
     grid-template-columns: repeat(3, 218px);
     justify-content: center;
   }
-  .services__icon {
-    font-size: 2px;
-  }
+
   .services__content {
     padding: 6rem 0 2rem 2.5rem;
   }
